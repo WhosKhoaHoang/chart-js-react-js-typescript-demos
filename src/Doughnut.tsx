@@ -1,15 +1,13 @@
-import React from 'react'
 import { Doughnut } from 'react-chartjs-2'
 
 import {
-  Chart as ChartJS,
+  Chart,
   ArcElement,
   Tooltip,
   Legend,
-  Chart
 } from 'chart.js'
 
-ChartJS.register(
+Chart.register(
   ArcElement,
   Tooltip,
   Legend
@@ -41,7 +39,7 @@ const DoughnutChart = () => {
   const doughnutLabel = {
     id: 'doughnutLabel',
     afterDatasetsDraw(chart: Chart<'doughnut'>) {
-      const { ctx, data } = chart
+      const { ctx } = chart
       const centerX = chart.getDatasetMeta(0).data[0].x
       const centerY = chart.getDatasetMeta(0).data[0].y
       ctx.save()
