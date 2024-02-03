@@ -6,6 +6,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js'
+import { Wrapper } from './components/Wrapper'
 
 Chart.register(
   ArcElement,
@@ -15,12 +16,12 @@ Chart.register(
 
 const DoughnutChart = () => {
   const data = {
-    labels: ['Red', 'Blue'],
+    labels: ['Black', 'White'],
     datasets: [
       {
         label: 'Shop 1',
         data: [3,6],
-        backgroundColor: ['red', 'blue'],
+        backgroundColor: ['black', 'white'],
         borderColor: ['black', 'black'],
         cutout: '90%'
       }
@@ -43,7 +44,7 @@ const DoughnutChart = () => {
       const centerX = chart.getDatasetMeta(0).data[0].x
       const centerY = chart.getDatasetMeta(0).data[0].y
       ctx.save()
-      ctx.font = 'bold 90px sans-serif'
+      ctx.font = 'bold 50px sans-serif'
       ctx.fillStyle = 'black'
       ctx.textAlign = 'center'
       //ctx.baseAlign = 'middle'
@@ -54,11 +55,14 @@ const DoughnutChart = () => {
 
   return (
     <div>
-      <Doughnut
-        data={data}
-        options={options}
-        plugins={[doughnutLabel]}
-      />
+        <Wrapper>
+          <h1>lol wut...</h1>
+          <Doughnut
+            data={data}
+            options={options}
+            plugins={[doughnutLabel]}
+          />
+      </Wrapper>
     </div>
   )
 }
